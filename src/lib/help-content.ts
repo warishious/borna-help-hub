@@ -123,7 +123,7 @@ export type VideoItem = {
   topic: string;
   topicSlug: string;
   product: Product;
-  duration?: string;
+  duration?: string | undefined;
   description: string;
 };
 
@@ -198,7 +198,7 @@ export type SearchResult = {
   topic: string;
   topicSlug: string;
   product: Product;
-  duration?: string;
+  duration?: string | undefined;
 };
 
 const articleResults: SearchResult[] = topics.map((t) => ({
