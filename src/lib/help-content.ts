@@ -442,6 +442,62 @@ export const topics: Topic[] = [
         ],
       },
       {
+        id: "admin-requests",
+        title: "For clinics: create, send, and track payment requests",
+        blocks: [
+          {
+            type: "p",
+            text: "Clinic teams raise the payment requests that patients see in Borna Care. This is done from the Payments dashboard in the Borna admin portal.",
+          },
+          {
+            type: "steps",
+            items: [
+              {
+                title: "Open the Payments dashboard",
+                points: [
+                  "Sign in to the Borna admin portal.",
+                  "Open the Payments section from the main navigation.",
+                  "Review the summary of paid, pending, and overdue requests.",
+                ],
+              },
+              {
+                title: "Create a payment request",
+                points: [
+                  "Click the option to create a new payment request.",
+                  "Search for and select the patient the request is for.",
+                  "Add the service or item description and the amount due.",
+                  "Add a due date and any note the patient should see.",
+                ],
+              },
+              {
+                title: "Send the request",
+                points: [
+                  "Review the patient name, amount, and description before sending.",
+                  "Send the request so it appears in the patient's Borna Care Payments section.",
+                  "The patient is notified and can pay from their portal.",
+                ],
+              },
+              {
+                title: "Track and reconcile",
+                points: [
+                  "Watch the request move from Pending to Settled once payment is confirmed.",
+                  "Filter by status or date to find outstanding requests.",
+                  "Open a transaction to view details or download the receipt for your records.",
+                ],
+              },
+            ],
+          },
+          {
+            type: "callout",
+            title: "Note",
+            items: [
+              "Only clinic admins with payment permissions can create or cancel payment requests.",
+              "Cancel and re-issue a request rather than editing an amount a patient has already part-paid.",
+            ],
+          },
+        ],
+      },
+      {
         id: "best-practices",
         title: "Best Practices",
         blocks: [
