@@ -53,6 +53,20 @@ export const topics: Topic[] = [
       "Use this guide to learn how clinic admins can create an account, sign in securely, and complete two-factor authentication before accessing the Borna admin workspace.",
     sections: [
       {
+        id: "overview",
+        title: "Overview",
+        blocks: [
+          {
+            type: "p",
+            text: "The Borna admin portal is the workspace clinic teams use to manage appointments, patients, forms, chat, and payments in one place.",
+          },
+          {
+            type: "p",
+            text: "This guide walks through creating an admin account, signing in securely with two-factor authentication, and finding your way around the dashboard for the first time.",
+          },
+        ],
+      },
+      {
         id: "before-you-start",
         title: "Before you start",
         blocks: [
@@ -198,12 +212,38 @@ export const topics: Topic[] = [
         ],
       },
       {
+        id: "best-practices",
+        title: "Best Practices",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Use your clinic email address so account access stays with the practice.",
+              "Keep your registered phone number up to date for two-factor codes.",
+              "Never share your password or verification codes, even with colleagues.",
+              "Sign out on shared or public devices after each session.",
+              "Give each team member their own admin login instead of sharing one account.",
+            ],
+          },
+        ],
+      },
+      {
         id: "next-step",
         title: "Recommended next step",
         blocks: [
           {
             type: "p",
             text: "After signing in, review the admin dashboard and confirm that your clinic profile, services, providers, forms, and payment settings are configured correctly.",
+          },
+        ],
+      },
+      {
+        id: "summary",
+        title: "Summary",
+        blocks: [
+          {
+            type: "p",
+            text: "Creating an admin account takes a few minutes: open the Borna admin sign-in page, register or sign in with your clinic email, verify your identity with two-factor authentication, and then set up your clinic details from the dashboard.",
           },
         ],
       },
@@ -397,6 +437,62 @@ export const topics: Topic[] = [
                   "Save the receipt for your records if needed.",
                 ],
               },
+            ],
+          },
+        ],
+      },
+      {
+        id: "admin-requests",
+        title: "For clinics: create, send, and track payment requests",
+        blocks: [
+          {
+            type: "p",
+            text: "Clinic teams raise the payment requests that patients see in Borna Care. This is done from the Payments dashboard in the Borna admin portal.",
+          },
+          {
+            type: "steps",
+            items: [
+              {
+                title: "Open the Payments dashboard",
+                points: [
+                  "Sign in to the Borna admin portal.",
+                  "Open the Payments section from the main navigation.",
+                  "Review the summary of paid, pending, and overdue requests.",
+                ],
+              },
+              {
+                title: "Create a payment request",
+                points: [
+                  "Click the option to create a new payment request.",
+                  "Search for and select the patient the request is for.",
+                  "Add the service or item description and the amount due.",
+                  "Add a due date and any note the patient should see.",
+                ],
+              },
+              {
+                title: "Send the request",
+                points: [
+                  "Review the patient name, amount, and description before sending.",
+                  "Send the request so it appears in the patient's Borna Care Payments section.",
+                  "The patient is notified and can pay from their portal.",
+                ],
+              },
+              {
+                title: "Track and reconcile",
+                points: [
+                  "Watch the request move from Pending to Settled once payment is confirmed.",
+                  "Filter by status or date to find outstanding requests.",
+                  "Open a transaction to view details or download the receipt for your records.",
+                ],
+              },
+            ],
+          },
+          {
+            type: "callout",
+            title: "Note",
+            items: [
+              "Only clinic admins with payment permissions can create or cancel payment requests.",
+              "Cancel and re-issue a request rather than editing an amount a patient has already part-paid.",
             ],
           },
         ],
@@ -690,7 +786,9 @@ export const topics: Topic[] = [
     icon: CalendarDays,
     product: "Borna Care",
     articles: 1,
-    videos: 0,
+    videos: 1,
+    youtubeId: "yOcU7Jb5cvc",
+    videoTitle: "Borna Care Chat: ask a question and book an appointment",
     intro:
       "Use this guide to learn how to book, review, reschedule, or cancel an appointment from the Borna Care patient portal.",
     sections: [
