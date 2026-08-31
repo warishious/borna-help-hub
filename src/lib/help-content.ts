@@ -212,12 +212,38 @@ export const topics: Topic[] = [
         ],
       },
       {
+        id: "best-practices",
+        title: "Best Practices",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Use your clinic email address so account access stays with the practice.",
+              "Keep your registered phone number up to date for two-factor codes.",
+              "Never share your password or verification codes, even with colleagues.",
+              "Sign out on shared or public devices after each session.",
+              "Give each team member their own admin login instead of sharing one account.",
+            ],
+          },
+        ],
+      },
+      {
         id: "next-step",
         title: "Recommended next step",
         blocks: [
           {
             type: "p",
             text: "After signing in, review the admin dashboard and confirm that your clinic profile, services, providers, forms, and payment settings are configured correctly.",
+          },
+        ],
+      },
+      {
+        id: "summary",
+        title: "Summary",
+        blocks: [
+          {
+            type: "p",
+            text: "Creating an admin account takes a few minutes: open the Borna admin sign-in page, register or sign in with your clinic email, verify your identity with two-factor authentication, and then set up your clinic details from the dashboard.",
           },
         ],
       },
