@@ -1291,12 +1291,12 @@ export const topics: Topic[] = [
     description: "Complete, review, and submit clinic forms securely.",
     icon: FileText,
     product: "Borna Care",
-    articles: 0,
+    articles: 1,
     videos: 1,
     youtubeId: "UxgaG4bRBCs",
     videoTitle: "How to Complete a New Patient Form in Borna Care",
     intro:
-      "Watch how to open, complete, review, and submit a new patient form from the Borna Care patient portal.",
+      "Use this guide to learn how to open, complete, review, and submit a new patient form from the Borna Care patient portal.",
     sections: [
       {
         id: "overview",
@@ -1304,13 +1304,141 @@ export const topics: Topic[] = [
         blocks: [
           {
             type: "p",
-            text: "The Forms section in Borna Care lets you complete the intake and consent forms your clinic sends you, review your answers, and submit them securely before your visit. Watch the video walkthrough above for the full flow.",
+            text: "The Forms section in Borna Care lets you complete the intake and consent forms your clinic sends you, review your answers, and submit them securely before your visit.",
+          },
+          {
+            type: "list",
+            items: [
+              "View forms your clinic has requested",
+              "Complete a new patient form section by section",
+              "Review your answers before submitting",
+              "Submit the completed form securely to your clinic",
+            ],
+          },
+        ],
+      },
+      {
+        id: "before-you-start",
+        title: "Before you start",
+        blocks: [
+          {
+            type: "callout",
+            title: "Make sure you have",
+            items: [
+              "Access to your Borna Care patient account.",
+              "The correct clinic selected on your dashboard.",
+              "Your personal, insurance, and medical history details on hand.",
+              "A stable internet connection.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "complete-form",
+        title: "Complete a new patient form",
+        blocks: [
+          {
+            type: "steps",
+            items: [
+              {
+                title: "Open your clinic dashboard",
+                points: [
+                  "Sign in to Borna Care.",
+                  "Select the clinic that requested the form.",
+                ],
+              },
+              {
+                title: "Open the Forms section",
+                points: [
+                  "Select Forms from the navigation.",
+                  "You will see pending and completed forms.",
+                ],
+              },
+              {
+                title: "Open the new patient form",
+                points: [
+                  "Select the form your clinic sent you.",
+                  "The form opens with the first section displayed.",
+                ],
+              },
+              {
+                title: "Fill in your details",
+                points: [
+                  "Complete each section, including personal information, contact details, insurance, and medical history.",
+                  "Required fields must be completed before you can continue.",
+                ],
+              },
+              {
+                title: "Review your answers",
+                points: [
+                  "Move back through the sections to check your answers.",
+                  "Correct anything that is missing or incorrect.",
+                ],
+              },
+              {
+                title: "Submit the form",
+                points: [
+                  "Select Submit to send the completed form to your clinic.",
+                  "The form status updates to submitted in the Forms list.",
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "best-practices",
+        title: "Best Practices",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Complete forms before your appointment so your visit is not delayed.",
+              "Use the same details that appear on your insurance card.",
+              "Answer medical history questions as accurately as possible.",
+              "Review every section before submitting.",
+              "Contact the clinic if something in the form does not apply to you.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "troubleshooting",
+        title: "Troubleshooting",
+        blocks: [
+          {
+            type: "faq",
+            items: [
+              {
+                q: "I cannot see the form my clinic mentioned",
+                a: "Check that you selected the correct clinic on your dashboard. If the form is still missing, the clinic may not have sent it yet.",
+              },
+              {
+                q: "The Submit button is not active",
+                a: "One or more required fields are incomplete. Go back through the sections and complete every required field.",
+              },
+              {
+                q: "I made a mistake after submitting",
+                a: "Contact your clinic through Chat and ask them to resend the form so you can update your answers.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "summary",
+        title: "Summary",
+        blocks: [
+          {
+            type: "p",
+            text: "The Forms feature in Borna Care gives patients a simple, secure way to complete intake and consent paperwork online before their visit.",
           },
         ],
       },
     ],
   },
 ];
+
 
 export type VideoItem = {
   id: string;

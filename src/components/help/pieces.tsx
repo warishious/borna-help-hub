@@ -106,13 +106,27 @@ export function TopicCard({ topic }: { topic: Topic }) {
   );
 }
 
-export function VideoThumb({ label }: { label?: string }) {
+export function VideoThumb({
+  youtubeId,
+  label,
+  alt,
+}: {
+  youtubeId?: string;
+  label?: string;
+  alt?: string;
+}) {
   return (
     <div className="relative grid aspect-video w-full place-items-center overflow-hidden rounded-xl border border-border bg-[image:var(--gradient-soft)]">
-      <div
-        className="absolute inset-0 opacity-[0.07] gradient-brand"
-        aria-hidden="true"
-      />
+      {youtubeId ? (
+        <img
+          src={`https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`}
+          alt={alt ?? "Video thumbnail"}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : (
+        <div className="absolute inset-0 opacity-[0.07] gradient-brand" aria-hidden="true" />
+      )}
       <span className="gradient-brand relative grid h-12 w-12 place-items-center rounded-full text-white shadow-card">
         <Play className="h-5 w-5 translate-x-[1px]" fill="currentColor" />
       </span>
@@ -125,10 +139,37 @@ export function VideoThumb({ label }: { label?: string }) {
   );
 }
 
+export function YouTubePlayer({ youtubeId, title }: { youtubeId: string; title: string }) {
+  const [playing, setPlaying] = useState(false);
+  if (!playing) {
+    return (
+      <button
+        type="button"
+        onClick={() => setPlaying(true)}
+        aria-label={`Play video: ${title}`}
+        className="block w-full"
+      >
+        <VideoThumb youtubeId={youtubeId} alt={title} />
+      </button>
+    );
+  }
+  return (
+    <div className="aspect-video w-full overflow-hidden rounded-xl border border-border">
+      <iframe
+        src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`}
+        title={title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        className="h-full w-full"
+      />
+    </div>
+  );
+}
+
 export function VideoCard({ video }: { video: VideoItem }) {
   return (
     <article className="surface-panel overflow-hidden p-3 transition-all hover:-translate-y-0.5 hover:shadow-float">
-      <VideoThumb {...(video.duration ? { label: video.duration } : {})} />
+      <YouTubePlayer youtubeId={video.youtubeId} title={video.title} />
       <div className="p-3">
         <div className="flex flex-wrap items-center gap-2">
           <ProductBadge product={video.product} />
@@ -136,6 +177,14 @@ export function VideoCard({ video }: { video: VideoItem }) {
         </div>
         <h3 className="mt-2.5 text-sm font-semibold text-foreground">{video.title}</h3>
         <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{video.description}</p>
+        <a
+          href={`https://youtu.be/${video.youtubeId}`}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-3 inline-block text-xs font-semibold text-primary hover:underline"
+        >
+          Watch on YouTube
+        </a>
       </div>
     </article>
   );
@@ -151,9 +200,6 @@ export function ResultCard({ result }: { result: SearchResult }) {
       <div className="flex flex-wrap items-center gap-2">
         <KindBadge kind={result.kind} />
         <span className="text-xs font-medium text-muted-foreground">{result.topic}</span>
-        {result.duration && (
-          <span className="text-xs text-muted-foreground">· {result.duration}</span>
-        )}
       </div>
       <h3 className="text-base font-semibold text-foreground">{result.title}</h3>
       <p className="text-sm leading-relaxed text-muted-foreground">{result.description}</p>
@@ -161,6 +207,7 @@ export function ResultCard({ result }: { result: SearchResult }) {
     </Link>
   );
 }
+
 
 export function Breadcrumb({ items }: { items: { label: string; to?: string }[] }) {
   return (
