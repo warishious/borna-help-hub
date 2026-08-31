@@ -786,7 +786,9 @@ export const topics: Topic[] = [
     icon: CalendarDays,
     product: "Borna Care",
     articles: 1,
-    videos: 0,
+    videos: 1,
+    youtubeId: "yOcU7Jb5cvc",
+    videoTitle: "Borna Care Chat: ask a question and book an appointment",
     intro:
       "Use this guide to learn how to book, review, reschedule, or cancel an appointment from the Borna Care patient portal.",
     sections: [
