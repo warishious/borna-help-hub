@@ -53,6 +53,20 @@ export const topics: Topic[] = [
       "Use this guide to learn how clinic admins can create an account, sign in securely, and complete two-factor authentication before accessing the Borna admin workspace.",
     sections: [
       {
+        id: "overview",
+        title: "Overview",
+        blocks: [
+          {
+            type: "p",
+            text: "The Borna admin portal is the workspace clinic teams use to manage appointments, patients, forms, chat, and payments in one place.",
+          },
+          {
+            type: "p",
+            text: "This guide walks through creating an admin account, signing in securely with two-factor authentication, and finding your way around the dashboard for the first time.",
+          },
+        ],
+      },
+      {
         id: "before-you-start",
         title: "Before you start",
         blocks: [
