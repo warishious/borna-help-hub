@@ -17,10 +17,11 @@ export const Route = createFileRoute("/articles/$slug")({
   loader: ({ params }) => {
     const topic = topics.find((t) => t.slug === params.slug);
     if (!topic) throw notFound();
-    return { topic };
+    return { slug: topic.slug };
   },
   head: ({ loaderData }) => {
-    if (!loaderData) {
+    const topic = loaderData ? topics.find((t) => t.slug === loaderData.slug) : undefined;
+    if (!topic) {
       return {
         meta: [
           { title: "Article unavailable — Borna Help Center" },
@@ -28,8 +29,8 @@ export const Route = createFileRoute("/articles/$slug")({
         ],
       };
     }
-    const title = `${loaderData.topic.title} — Borna Help Center`;
-    const description = loaderData.topic.description;
+    const title = `${topic.title} — Borna Help Center`;
+    const description = topic.description;
     const meta: { title?: string; name?: string; property?: string; content?: string }[] = [
       { title },
       { name: "description", content: description },
@@ -38,8 +39,8 @@ export const Route = createFileRoute("/articles/$slug")({
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary_large_image" },
     ];
-    if (loaderData.topic.youtubeId) {
-      const img = `https://i.ytimg.com/vi/${loaderData.topic.youtubeId}/maxresdefault.jpg`;
+    if (topic.youtubeId) {
+      const img = `https://i.ytimg.com/vi/${topic.youtubeId}/maxresdefault.jpg`;
       meta.push({ property: "og:image", content: img });
       meta.push({ name: "twitter:image", content: img });
     }
@@ -97,7 +98,8 @@ function BlockView({ block }: { block: Block }) {
 }
 
 function ArticlePage() {
-  const { topic } = Route.useLoaderData();
+  const { slug } = Route.useLoaderData();
+  const topic = topics.find((t) => t.slug === slug)!;
   const video = videos.find((v) => v.topicSlug === topic.slug);
   const youtubeId = topic.youtubeId ?? video?.youtubeId;
   const videoTitle = topic.videoTitle ?? video?.title ?? `${topic.title} video tutorial`;
