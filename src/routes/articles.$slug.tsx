@@ -98,7 +98,8 @@ function BlockView({ block }: { block: Block }) {
 }
 
 function ArticlePage() {
-  const { topic } = Route.useLoaderData();
+  const { slug } = Route.useLoaderData();
+  const topic = topics.find((t) => t.slug === slug)!;
   const video = videos.find((v) => v.topicSlug === topic.slug);
   const youtubeId = topic.youtubeId ?? video?.youtubeId;
   const videoTitle = topic.videoTitle ?? video?.title ?? `${topic.title} video tutorial`;
