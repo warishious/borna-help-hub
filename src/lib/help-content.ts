@@ -46,9 +46,7 @@ export const topics: Topic[] = [
     icon: Compass,
     product: "Borna Admin",
     articles: 1,
-    videos: 1,
-    youtubeId: "gFxfjmlKLMQ",
-    videoTitle: "Inside the Borna Dashboard: A Simpler Way to Manage Healthcare",
+    videos: 0,
     intro:
       "Use this guide to learn how clinic admins can create an account, sign in securely, and complete two-factor authentication before accessing the Borna admin workspace.",
     sections: [
