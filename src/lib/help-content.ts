@@ -5,10 +5,12 @@ import {
   FileText,
   CreditCard,
   MessageSquare,
+  Phone,
+  Inbox,
   type LucideIcon,
 } from "lucide-react";
 
-export type Product = "Borna Care" | "Borna Admin";
+export type Product = "Borna Care" | "Borna Admin" | "Borna Connect";
 
 export type Block =
   | { type: "p"; text: string }
@@ -46,7 +48,9 @@ export const topics: Topic[] = [
     icon: Compass,
     product: "Borna Admin",
     articles: 1,
-    videos: 0,
+    videos: 1,
+    youtubeId: "nRGY1-LxXaM",
+    videoTitle: "How to Sign Up and Securely Sign In to the Borna Admin Workspace",
     intro:
       "Use this guide to learn how clinic admins can create an account, sign in securely, and complete two-factor authentication before accessing the Borna admin workspace.",
     sections: [
