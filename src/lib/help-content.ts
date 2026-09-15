@@ -5,10 +5,12 @@ import {
   FileText,
   CreditCard,
   MessageSquare,
+  Phone,
+  Inbox,
   type LucideIcon,
 } from "lucide-react";
 
-export type Product = "Borna Care" | "Borna Admin";
+export type Product = "Borna Care" | "Borna Admin" | "Borna Connect";
 
 export type Block =
   | { type: "p"; text: string }
@@ -46,7 +48,9 @@ export const topics: Topic[] = [
     icon: Compass,
     product: "Borna Admin",
     articles: 1,
-    videos: 0,
+    videos: 1,
+    youtubeId: "nRGY1-LxXaM",
+    videoTitle: "How to Sign Up and Securely Sign In to the Borna Admin Workspace",
     intro:
       "Use this guide to learn how clinic admins can create an account, sign in securely, and complete two-factor authentication before accessing the Borna admin workspace.",
     sections: [
@@ -1526,6 +1530,756 @@ export const topics: Topic[] = [
           {
             type: "p",
             text: "The Forms feature in Borna Care gives patients a simple, secure way to complete intake and consent paperwork online before their visit.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "payments-admin",
+    title: "Payments Admin Dashboard",
+    description: "Create, send, and track patient payment requests.",
+    icon: CreditCard,
+    product: "Borna Admin",
+    articles: 1,
+    videos: 2,
+    youtubeId: "KKuQlei7FRk",
+    videoTitle: "How to Create Patient Payment Requests in Borna Care | Step-by-Step Admin Payments Demo",
+    intro:
+      "Use this guide to learn how clinic admins can review payment records, create payment requests, send secure payment links, and manage payment request statuses from the Borna Care admin portal.",
+    sections: [
+      {
+        id: "overview",
+        title: "Overview",
+        blocks: [
+          {
+            type: "p",
+            text: "The Payments section allows clinic staff to manage patient billing activity from one place. Admins can search payment records, filter requests, create new payment requests, send secure payment links, enable SMS notifications, and track payment request statuses.",
+          },
+          {
+            type: "p",
+            text: "This feature helps clinics reduce manual billing follow-ups and maintain a clear payment history.",
+          },
+        ],
+      },
+      {
+        id: "before-you-start",
+        title: "Before you start",
+        blocks: [
+          {
+            type: "callout",
+            title: "Make sure you have",
+            items: [
+              "Access to the Borna Care admin portal.",
+              "Permission to manage payments.",
+              "The patient's name, email address, and phone number.",
+              "The payment amount.",
+              "A clear payment description.",
+              "The service date and payment due date.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "review-payments",
+        title: "Review payment records",
+        blocks: [
+          {
+            type: "steps",
+            items: [
+              {
+                title: "Open the Payments section",
+                points: [
+                  "Sign in to the Borna Care admin portal.",
+                  "From the left-side menu, click Payments.",
+                  "The Payments page will open.",
+                  "Review the existing payment requests listed on the page.",
+                  "Each payment request may show the patient name, request ID, sent date, due date, amount, payment status, and available actions.",
+                ],
+              },
+              {
+                title: "Search or filter payment records",
+                points: [
+                  "Use the search bar to find a payment request by patient name or request ID.",
+                  "Use the filter option to narrow payment requests by status.",
+                  "Use the date range filter to review requests for a specific period.",
+                  "Use sorting if you need to organize records by date, amount, or recent activity.",
+                  "Date range options may include Today, Last 7 days, Last 30 days, Last 60 days, Year to date, and Custom date range.",
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "create-request",
+        title: "Create and send a payment request",
+        blocks: [
+          {
+            type: "steps",
+            items: [
+              {
+                title: "Start a new payment request",
+                points: [
+                  "Click New Request.",
+                  "The Create Payment Request page will open.",
+                  "This page allows the admin to create a secure payment link for an existing registered patient or a guest patient who is not yet registered in Borna Care.",
+                ],
+              },
+              {
+                title: "Select an existing patient",
+                points: [
+                  "Search or scroll through the patient list.",
+                  "Select the required patient.",
+                  "Once selected, the patient profile card will appear on the right side.",
+                  "Review the patient's email address, phone number, and registration status.",
+                  "The request summary will update automatically after the patient is selected.",
+                ],
+              },
+              {
+                title: "Add a guest patient",
+                points: [
+                  "Use this step only if the patient is not available in the existing patient list.",
+                  "Click New Guest Patient.",
+                  "Enter the guest patient's name, email address, and phone number.",
+                  "Review the guest patient profile card and confirm that the patient is shown as unregistered.",
+                ],
+              },
+              {
+                title: "Enter the payment amount",
+                points: [
+                  "Enter the amount to be requested from the patient.",
+                  "Review the total due in the request summary.",
+                  "Confirm that the amount is correct before continuing.",
+                ],
+              },
+              {
+                title: "Add the payment description",
+                points: [
+                  "Enter a clear description of the payment request.",
+                  "The description should explain what the payment is for.",
+                  "Example: Dental Cleaning Services.",
+                ],
+              },
+              {
+                title: "Select the service date and due date",
+                points: [
+                  "Select the Service Date — it should reflect when the treatment or service was provided.",
+                  "Select the Due Date — it should reflect when the patient is expected to complete the payment.",
+                ],
+              },
+              {
+                title: "Enable SMS notification",
+                points: [
+                  "Select the SMS notification option if the clinic wants to notify the patient by text message.",
+                  "Once selected, the request summary will show both delivery methods: secure email link and SMS notification.",
+                ],
+              },
+              {
+                title: "Review the request summary",
+                points: [
+                  "Before sending, review the patient name, email address, and phone number.",
+                  "Confirm the payment amount and payment description.",
+                  "Check the service date, due date, and delivery methods.",
+                ],
+              },
+              {
+                title: "Send the payment request",
+                points: [
+                  "Click Send Request.",
+                  "Borna Care will create the secure payment link and send the payment request to the patient.",
+                  "Wait for the confirmation screen before leaving the page.",
+                ],
+              },
+              {
+                title: "Confirm the request was sent",
+                points: [
+                  "Review the confirmation message and confirm that the payment request was sent successfully.",
+                  "Review the generated payment link.",
+                  "Check the request progress — the tracker shows that the payment request has been created and sent, and the payment remains pending until the patient completes it.",
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "manage-requests",
+        title: "Track and manage payment requests",
+        blocks: [
+          {
+            type: "steps",
+            items: [
+              {
+                title: "Return to payment history",
+                points: [
+                  "Click View Payment History.",
+                  "The Payments page will reopen.",
+                  "The newly created payment request will appear in the payment list.",
+                  "Review the patient name, request ID, due date, amount, and status.",
+                ],
+              },
+              {
+                title: "Manage a payment request",
+                points: [
+                  "Open the Actions menu for the required payment request.",
+                  "Review the available action options — they may vary depending on the payment status.",
+                  "For a new or unpaid request, the admin may be able to discard the payment request if it was created by mistake.",
+                ],
+              },
+              {
+                title: "Discard a payment request",
+                points: [
+                  "Open the Actions menu and select Discard Payment.",
+                  "A confirmation message will appear — review the warning carefully.",
+                  "Click Discard to confirm.",
+                  "The payment request status will update after the request is discarded.",
+                ],
+              },
+            ],
+          },
+          {
+            type: "callout",
+            title: "Important",
+            items: [
+              "Discarding a payment request may permanently remove or deactivate the request. Only discard a request if it was created incorrectly or should no longer be used by the patient.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "best-practices",
+        title: "Best Practices",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Confirm the correct patient before sending the request.",
+              "Check the patient's email address and phone number.",
+              "Use a clear payment description.",
+              "Confirm the payment amount before sending.",
+              "Set the correct service date and due date.",
+              "Enable SMS notification when additional visibility is needed.",
+              "Review the request summary before clicking Send Request.",
+              "Discard incorrect requests only when necessary.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "troubleshooting",
+        title: "Troubleshooting",
+        blocks: [
+          {
+            type: "faq",
+            items: [
+              {
+                q: "The patient is not listed",
+                a: "Search again using the patient's name, email address, or phone number. Confirm the spelling. Add the patient as a guest if they are not registered. Contact support if the patient should exist but does not appear.",
+              },
+              {
+                q: "The payment request was sent to the wrong patient",
+                a: "Do not reuse the incorrect request. Discard the request if available, then create a new payment request for the correct patient. Follow the clinic's internal billing correction process.",
+              },
+              {
+                q: "The payment amount is wrong",
+                a: "Do not send the request if it has not been submitted yet — correct the amount before sending. If the request was already sent, discard it if available and create a corrected payment request.",
+              },
+              {
+                q: "The payment status is not updating",
+                a: "Confirm whether the patient has completed the payment. Refresh the Payments page and check the payment history. Allow time for processing or verification. Contact Borna support if the status remains incorrect.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "summary",
+        title: "Summary",
+        blocks: [
+          {
+            type: "p",
+            text: "The Payments section helps clinic admins create secure payment requests, send payment links by email and SMS, track payment status, and manage incorrect requests. This keeps patient billing activity organized inside Borna Care.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "call-logs",
+    title: "Call Logs & AI Summaries",
+    description: "Review AI-handled calls, recordings, and transcripts.",
+    icon: Phone,
+    product: "Borna Connect",
+    articles: 1,
+    videos: 1,
+    youtubeId: "cSqDysdJ7b0",
+    videoTitle: "Borna Connect Call Logs: AI Summaries, Recordings & Follow-Ups",
+    intro:
+      "Use this guide to learn how clinic admins can review AI-handled calls, listen to recordings, read AI summaries, check transcripts, and manage call-related follow-up actions in Borna Connect.",
+    sections: [
+      {
+        id: "overview",
+        title: "Overview",
+        blocks: [
+          {
+            type: "p",
+            text: "The Call Logs section gives the clinic team a structured record of calls handled by Borna Connect. Each call record may include caller details, timestamp, call duration, recording, AI-generated summary, full transcript, action items, and patient profile information.",
+          },
+          {
+            type: "p",
+            text: "This helps staff understand patient calls quickly without listening to every recording from beginning to end.",
+          },
+        ],
+      },
+      {
+        id: "before-you-start",
+        title: "Before you start",
+        blocks: [
+          {
+            type: "callout",
+            title: "Make sure you have",
+            items: [
+              "Access to the Borna Connect admin portal.",
+              "Permission to view call logs.",
+              "The correct clinic selected.",
+              "A date range, patient name, or phone number if searching for a specific call.",
+              "Permission to review recordings and transcripts, if required by the clinic.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "find-a-call",
+        title: "Find and open a call",
+        blocks: [
+          {
+            type: "steps",
+            items: [
+              {
+                title: "Open Call Logs",
+                points: [
+                  "Sign in to the Borna Connect admin portal.",
+                  "From the left-side menu, click Call Logs.",
+                  "Review the list of calls shown for the selected period.",
+                  "Each call record may show the caller or patient name, phone number, call timestamp, recording, handle status, and action button.",
+                ],
+              },
+              {
+                title: "Search or filter calls",
+                points: [
+                  "Use the search bar to search by patient name or phone number.",
+                  "Use the date range filter to narrow calls for a specific period.",
+                  "Review the filtered list to find the required call record.",
+                ],
+              },
+              {
+                title: "Open a call record",
+                points: [
+                  "Find the call you want to review and click the action button for that call.",
+                  "The Call Details page will open.",
+                  "Review the caller name, call type, phone number, timestamp, duration, and status.",
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "review-a-call",
+        title: "Review a call",
+        blocks: [
+          {
+            type: "steps",
+            items: [
+              {
+                title: "Review the AI call summary",
+                points: [
+                  "Go to the AI-generated summary section.",
+                  "Read the summary to understand the purpose of the call.",
+                  "Check what the caller asked and how the AI assistant responded.",
+                  "Identify whether the call was resolved or needs staff review.",
+                ],
+              },
+              {
+                title: "Review Action Required",
+                points: [
+                  "Check the Action Required panel and review the recommended next steps.",
+                  "Confirm whether clinic staff need to take any action.",
+                  "Examples of action items include confirming an appointment, contacting the patient, reviewing a billing question, confirming clinic policy information, or sending appointment reminders or instructions.",
+                ],
+              },
+              {
+                title: "Review the patient profile",
+                points: [
+                  "Open or review the patient profile card on the call detail page.",
+                  "Check the caller name, phone number, and any available patient ID or email address.",
+                  "If the caller is unknown, the profile may show only the phone number.",
+                ],
+              },
+              {
+                title: "Play the call recording",
+                points: [
+                  "Go to the audio recording section and click play to listen to the call.",
+                  "Use the waveform or timeline to move through the recording.",
+                  "Pause or replay sections as needed.",
+                  "Download the recording if the clinic needs a copy for internal review.",
+                ],
+              },
+              {
+                title: "Review the conversation transcript",
+                points: [
+                  "Open the Conversation Transcript section and scroll through the transcript.",
+                  "Review the exchange between the caller and the AI assistant.",
+                  "Confirm what the caller asked and what information the AI assistant provided.",
+                  "Check whether anything needs correction, confirmation, or follow-up.",
+                ],
+              },
+              {
+                title: "Use the transcript for quality review",
+                points: [
+                  "Verify whether the AI understood the caller correctly and whether the AI response was accurate.",
+                  "Check whether the caller provided the required details.",
+                  "Confirm whether the appointment, billing question, or general inquiry was handled properly and whether the clinic needs to follow up.",
+                ],
+              },
+              {
+                title: "Review appointment-related calls",
+                points: [
+                  "For appointment-related calls, check whether the AI captured the patient name, date of birth (if required), phone number, and email address.",
+                  "Confirm the appointment reason, preferred date and time, and the confirmed appointment details.",
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "complete-a-review",
+        title: "Complete the review",
+        blocks: [
+          {
+            type: "steps",
+            items: [
+              {
+                title: "Mark a call as complete",
+                points: [
+                  "Review the summary, recording, transcript, action items, and patient profile.",
+                  "Complete any required follow-up action.",
+                  "Click Mark as Complete, if available.",
+                  "The call status will update once the review is completed.",
+                ],
+              },
+              {
+                title: "Return to the Call Logs page",
+                points: [
+                  "Go back to the Call Logs list.",
+                  "Continue reviewing other calls if needed.",
+                  "Use search or filters to find another record and confirm that reviewed calls are updated properly.",
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "best-practices",
+        title: "Best Practices",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Start with the AI summary for a quick understanding.",
+              "Use the transcript to confirm exact details.",
+              "Listen to the recording when the summary or transcript needs verification.",
+              "Review action items before marking a call complete.",
+              "Follow up on unresolved calls promptly.",
+              "Search by patient name or phone number when looking for a specific call.",
+              "Download recordings only when required by clinic policy.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "troubleshooting",
+        title: "Troubleshooting",
+        blocks: [
+          {
+            type: "faq",
+            items: [
+              {
+                q: "I cannot find a call",
+                a: "Confirm the date range. Search by phone number or patient name. Clear filters and try again. Confirm that the call was routed through Borna Connect.",
+              },
+              {
+                q: "The caller is showing as unknown",
+                a: "Review the phone number and check whether it matches an existing patient record. Use the transcript to identify whether the caller provided a name. Update the patient record if appropriate.",
+              },
+              {
+                q: "The AI summary seems incomplete",
+                a: "Read the full transcript and listen to the recording. Check the Action Required section and create or update a follow-up if staff action is needed.",
+              },
+              {
+                q: "The transcript does not look accurate",
+                a: "Listen to the call recording and compare the transcript with the audio. Use the recording as the reference if there is a mismatch. Report the issue to Borna support if needed.",
+              },
+              {
+                q: "The call status is not updating",
+                a: "Confirm that the required review action was completed. Refresh the Call Logs page and open the call record again. Contact support if the status still does not update.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "summary",
+        title: "Summary",
+        blocks: [
+          {
+            type: "p",
+            text: "The Call Logs section in Borna Connect helps clinic teams review AI-handled calls, understand patient intent, check summaries and transcripts, listen to recordings, and manage follow-up actions. This gives the clinic a clear record of patient calls and reduces manual call review time.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "connect-chat",
+    title: "Connect Chat, Archived Chats & Follow-Ups",
+    description: "Manage patient chats, archived chats, and follow-up tasks.",
+    icon: Inbox,
+    product: "Borna Connect",
+    articles: 1,
+    videos: 1,
+    youtubeId: "P-qbDvW8Acg",
+    videoTitle: "Borna Connect Chat, Archived Chat, & Follow-Ups | Step-by-Step Demo",
+    intro:
+      "Use this guide to learn how clinic admins can review patient chats, take over AI-assisted conversations, archive completed chats, and manage follow-up tasks in Borna Connect.",
+    sections: [
+      {
+        id: "overview",
+        title: "Overview",
+        blocks: [
+          {
+            type: "p",
+            text: "The Chat section in Borna Connect allows clinic staff to review patient conversations from the admin side. Chats may include AI-assisted responses, appointment booking requests, billing questions, general inquiries, and conversations that require human support.",
+          },
+          {
+            type: "p",
+            text: "The Archived Chats section keeps completed conversations available for reference, while the Follow-ups section helps staff track unresolved or action-required patient requests.",
+          },
+        ],
+      },
+      {
+        id: "before-you-start",
+        title: "Before you start",
+        blocks: [
+          {
+            type: "callout",
+            title: "Make sure you have",
+            items: [
+              "Access to the Borna Connect admin portal.",
+              "Permission to view and respond to chats.",
+              "The correct clinic selected.",
+              "Permission to manage follow-ups, if applicable.",
+              "Patient information available if manual follow-up is needed.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "review-chats",
+        title: "Review and respond to chats",
+        blocks: [
+          {
+            type: "steps",
+            items: [
+              {
+                title: "Open the Chat section",
+                points: [
+                  "Sign in to the Borna Connect admin portal.",
+                  "From the left-side menu, click Chat.",
+                  "The All Chats page will open — review the list of patient conversations.",
+                  "Each chat may show the patient name, recent message, chat topic or title, time of latest activity, and conversation status.",
+                ],
+              },
+              {
+                title: "Open a patient conversation",
+                points: [
+                  "Select a conversation from the chat list — the full chat thread will open on the right side.",
+                  "Review the messages between the patient and the AI assistant or clinic staff.",
+                  "Check the conversation category, such as appointment booking, billing question, or general inquiry.",
+                ],
+              },
+              {
+                title: "Review an appointment chat",
+                points: [
+                  "Open an appointment-related conversation.",
+                  "Review the patient's selected option, such as Book Appointment.",
+                  "Check the appointment slot shown by the AI assistant and confirm whether the appointment was successfully scheduled.",
+                  "Review the AI Summary below the conversation — it helps the clinic understand what happened without reading every message in detail.",
+                ],
+              },
+              {
+                title: "Review the AI Summary",
+                points: [
+                  "Go to the AI Summary section and check the purpose of the chat.",
+                  "Review the conversation duration and the conversation tag.",
+                  "Confirm whether the issue was resolved and identify whether any further action is required.",
+                ],
+              },
+              {
+                title: "Review human handoff chats",
+                points: [
+                  "Open a conversation where the patient requested a human agent.",
+                  "Review the previous AI messages and check what the patient asked.",
+                  "Identify what still needs a staff response, using the full chat history to understand the context before replying.",
+                ],
+              },
+              {
+                title: "Reply as clinic staff",
+                points: [
+                  "Click inside the message field and type the response from the clinic side.",
+                  "Keep the message clear and specific, then send it.",
+                  "Continue the conversation until the patient's request is addressed.",
+                  "Staff can answer clinic-specific questions, appointment coordination questions, billing questions, or requests the AI could not complete.",
+                ],
+              },
+              {
+                title: "End a chat session",
+                points: [
+                  "Confirm that the patient's question has been answered, and ask whether they need anything else, if appropriate.",
+                  "Select the option to end the chat session, review the confirmation popup, and confirm the action to close the chat.",
+                  "After the session ends, the patient may no longer be able to send messages in that specific conversation.",
+                ],
+              },
+              {
+                title: "Review the completed chat summary",
+                points: [
+                  "After ending the chat, review the AI Summary generated for the completed conversation.",
+                  "Confirm the main reason for the chat and check whether the patient's issue was resolved.",
+                  "Identify if any appointment, billing, or support action is still needed.",
+                ],
+              },
+              {
+                title: "View patient contact information",
+                points: [
+                  "Open the contact information panel.",
+                  "Review the patient name, phone number, and patient ID, if available.",
+                  "Use this information if the clinic needs to follow up outside the chat.",
+                ],
+              },
+              {
+                title: "Start a new chat from the admin side",
+                points: [
+                  "Click New Chat, if available.",
+                  "Search for the patient and select them from the list.",
+                  "A new chat window will open — type and send the clinic message.",
+                  "This allows staff to start a conversation with a selected patient when needed.",
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "archived-chats",
+        title: "Archive chats and review archived chats",
+        blocks: [
+          {
+            type: "steps",
+            items: [
+              {
+                title: "Archive a chat",
+                points: [
+                  "Open or select the completed chat and choose the archive option.",
+                  "Confirm the action if prompted.",
+                  "The chat will move out of the active chat list and a confirmation message may appear once the chat is archived.",
+                  "Archiving helps keep the active inbox clean while keeping the chat available for future reference.",
+                ],
+              },
+              {
+                title: "Open Archived Chats",
+                points: [
+                  "From the left-side menu, click Archived Chats.",
+                  "Review the list of archived conversations and use search if needed.",
+                  "Open an archived conversation to review the previous chat details.",
+                  "Archived chats may show the patient name, chat title, date, status, and available actions.",
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "follow-ups",
+        title: "Manage follow-ups",
+        blocks: [
+          {
+            type: "steps",
+            items: [
+              {
+                title: "Open Follow-ups",
+                points: [
+                  "From the left-side menu, click Follow-ups.",
+                  "The Follow-ups page will open — review the list of follow-up tasks.",
+                  "Check the patient name, reason, priority, status, and action options.",
+                  "Follow-ups may be created from chats, billing questions, unresolved conversations, or patient requests requiring staff action.",
+                ],
+              },
+              {
+                title: "Review follow-up details",
+                points: [
+                  "Open the required follow-up and review the patient name.",
+                  "Check the source of the follow-up, the reason, and the priority.",
+                  "Read the follow-up summary and review the timeline of actions.",
+                  "The summary explains why the follow-up was created and what the clinic team may need to do next.",
+                ],
+              },
+              {
+                title: "Complete a follow-up",
+                points: [
+                  "Review the required action and complete the task outside or inside Borna, depending on the workflow.",
+                  "Return to the follow-up record and click Mark as Complete.",
+                  "Confirm that the follow-up status has been updated.",
+                ],
+              },
+              {
+                title: "Review unresolved chats",
+                points: [
+                  "Return to the Chat section and open any conversation marked as unresolved.",
+                  "Review the AI Summary and check the conversation tag, such as Billing Question.",
+                  "Follow up with the patient if the AI could not resolve the issue.",
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "best-practices",
+        title: "Best Practices",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Review the AI Summary before responding.",
+              "Read the full chat when context is needed.",
+              "Reply promptly to conversations handed off from the AI assistant.",
+              "End chat sessions only after the patient's question has been fully answered.",
+              "Archive completed chats to keep the active inbox clean.",
+              "Review follow-ups daily so unresolved patient requests are not missed.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "summary",
+        title: "Summary",
+        blocks: [
+          {
+            type: "p",
+            text: "The Chat, Archived Chats, and Follow-ups sections in Borna Connect help clinic teams review AI-assisted conversations, step in when a human response is needed, keep completed chats organized, and track every patient request that still requires action.",
           },
         ],
       },
