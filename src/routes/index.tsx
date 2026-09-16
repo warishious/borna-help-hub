@@ -25,6 +25,19 @@ export const Route = createFileRoute("/")({
 
 type Filter = "All" | "Articles" | "Videos";
 
+const videoGroups = [
+  {
+    label: "Borna Care",
+    blurb: "Patient app and clinic admin walkthroughs.",
+    items: videos.filter((v) => v.product !== "Borna Connect"),
+  },
+  {
+    label: "Borna Connect",
+    blurb: "Calls, chats, and follow-ups handled by your AI front desk.",
+    items: videos.filter((v) => v.product === "Borna Connect"),
+  },
+].filter((g) => g.items.length > 0);
+
 function HelpCenter() {
   const [input, setInput] = useState("");
   const [query, setQuery] = useState("");
