@@ -156,7 +156,7 @@ function HelpCenter() {
                 <h2 className="text-2xl font-semibold tracking-tight text-foreground">
                   Explore Help Center
                 </h2>
-                <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+                <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   {topics.map((t) => (
                     <TopicCard key={t.slug} topic={t} />
                   ))}
@@ -164,21 +164,30 @@ function HelpCenter() {
               </section>
 
               <section className="mt-16">
-                <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-4">
-                  <div className="min-w-0">
-                    <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                      Watch & Learn
-                    </h2>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      Short walkthroughs of the features patients and teams use most.
-                    </p>
+                <div className="min-w-0">
+                  <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                    Watch & Learn
+                  </h2>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Short walkthroughs, grouped by product.
+                  </p>
+                </div>
+
+                {videoGroups.map((group) => (
+                  <div key={group.label} className="mt-10">
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b border-border pb-3">
+                      <h3 className="text-lg font-semibold tracking-tight text-foreground">
+                        {group.label}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">{group.blurb}</p>
+                    </div>
+                    <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                      {group.items.map((v) => (
+                        <VideoCard key={v.id} video={v} />
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                  {videos.map((v) => (
-                    <VideoCard key={v.id} video={v} />
-                  ))}
-                </div>
+                ))}
               </section>
 
               <section className="mt-16 grid gap-6 lg:grid-cols-[1.1fr_1fr]">
