@@ -27,9 +27,14 @@ type Filter = "All" | "Articles" | "Videos";
 
 const videoGroups = [
   {
-    label: "Borna Care",
-    blurb: "Patient app and clinic admin walkthroughs.",
-    items: videos.filter((v) => v.product !== "Borna Connect"),
+    label: "Borna Care — Patient",
+    blurb: "For patients using the Borna Care app: chats, forms, payments, and account management.",
+    items: videos.filter((v) => v.product === "Borna Care"),
+  },
+  {
+    label: "Borna Care — Admin",
+    blurb: "For clinic staff managing the admin workspace, dashboard, and payment requests.",
+    items: videos.filter((v) => v.product === "Borna Admin"),
   },
   {
     label: "Borna Connect",
