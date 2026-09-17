@@ -190,17 +190,43 @@ function HelpCenter() {
               </section>
 
               <section className="mt-16">
-                <div className="min-w-0">
-                  <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                    Watch & Learn
-                  </h2>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    Short walkthroughs, grouped by product.
-                  </p>
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div className="min-w-0">
+                    <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                      Watch &amp; Learn
+                    </h2>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      Short walkthroughs, grouped by product.
+                    </p>
+                  </div>
+
+                  <div
+                    role="tablist"
+                    aria-label="Video categories"
+                    className="flex flex-wrap gap-1 rounded-full border border-border bg-card p-1"
+                  >
+                    {videoGroups.map((g, i) => (
+                      <button
+                        key={g.label}
+                        type="button"
+                        role="tab"
+                        aria-selected={activeGroup === i}
+                        onClick={() => setActiveGroup(i)}
+                        className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-colors ${
+                          activeGroup === i
+                            ? "gradient-brand text-white shadow-sm"
+                            : "text-muted-foreground hover:text-foreground"
+                        }`}
+                      >
+                        {g.label}
+                        <span className="ml-1.5 opacity-70">{g.items.length}</span>
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
-                {videoGroups.map((group) => (
-                  <div key={group.label} className="mt-10">
+                {group && (
+                  <div key={group.label} className="mt-8" role="tabpanel">
                     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b border-border pb-3">
                       <h3 className="text-lg font-semibold tracking-tight text-foreground">
                         {group.label}
@@ -213,7 +239,7 @@ function HelpCenter() {
                       ))}
                     </div>
                   </div>
-                ))}
+                )}
               </section>
 
               <section className="mt-16 grid gap-6 lg:grid-cols-[1.1fr_1fr]">
