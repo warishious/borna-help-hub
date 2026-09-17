@@ -53,6 +53,8 @@ function HelpCenter() {
   const [input, setInput] = useState("");
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<Filter>("All");
+  const [activeGroup, setActiveGroup] = useState(0);
+  const group = videoGroups[activeGroup] ?? videoGroups[0];
 
   const results = useMemo(() => searchHelp(query), [query]);
   const filtered = results.filter((r) =>
