@@ -25,7 +25,13 @@ export const Route = createFileRoute("/")({
 
 type Filter = "All" | "Articles" | "Videos";
 
-const videoGroups = [
+type VideoGroup = {
+  label: string;
+  blurb: string;
+  items: typeof videos;
+};
+
+const videoGroups: VideoGroup[] = [
   {
     label: "Borna Care — Patient",
     blurb: "For patients using the Borna Care app: chats, forms, payments, and account management.",
